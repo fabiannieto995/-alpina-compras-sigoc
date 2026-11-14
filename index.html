@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Prototipo académico de gestión de compras para Alpina Productos Alimenticios S.A.S.">
+  <title>Alpina Compras | SIGOC</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230f3b2e'/%3E%3Ctext x='32' y='47' font-family='Georgia,serif' font-size='42' font-style='italic' text-anchor='middle' fill='%23e0b24a'%3Ea%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ===================== INICIO DE SESIÓN ===================== -->
+  <section id="loginView" class="login-screen">
+    <div class="login-art">
+      <div class="brand"><span class="brand-mark">a</span><span>alpina<span class="brand-sub">COMPRAS</span></span></div>
+
+      <div class="login-message">
+        <span class="eyebrow">GESTIÓN DE ABASTECIMIENTO</span>
+        <h1>Compras claras.<br><em>Procesos bajo control.</em></h1>
+        <p>Un espacio centralizado para gestionar solicitudes, aprobaciones, proveedores, órdenes de compra y recepciones.</p>
+      </div>
+
+      <div class="flow-steps">
+        <div class="flow-step"><b>1</b><div><strong>Solicitud</strong><small>El área registra la necesidad</small></div></div>
+        <div class="flow-step"><b>2</b><div><strong>Aprobación</strong><small>El jefe decide y deja su observación</small></div></div>
+        <div class="flow-step"><b>3</b><div><strong>Orden de compra</strong><small>Compras gestiona y recibe</small></div></div>
+      </div>
+
+      <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+    </div>
+
+    <div class="login-panel">
+      <div class="login-box">
+        <span class="eyebrow">PLATAFORMA DE COMPRAS</span>
+        <h2>Iniciar sesión</h2>
+        <p class="muted">Elige un perfil de demostración para explorar cada vista del proceso.</p>
+
+        <div class="profile-picker" id="profilePicker"></div>
+
+        <form id="loginForm" novalidate>
+          <label for="loginUser">Correo electrónico</label>
+          <input id="loginUser" type="email" autocomplete="username" placeholder="usuario@alpina.com">
+          <label for="loginPassword">Contraseña</label>
+          <div class="password-wrap">
+            <input id="loginPassword" type="password" autocomplete="current-password" placeholder="••••••••••">
+            <button type="button" class="pass-toggle" data-action="toggle-pass" aria-label="Mostrar u ocultar contraseña"></button>
+          </div>
+          <div id="loginError" class="form-error" role="alert"></div>
+          <button class="btn btn-primary btn-full" type="submit">Ingresar al sistema <span class="btn-arrow"></span></button>
+        </form>
+
+       
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== APLICACIÓN ===================== -->
+  <div id="appView" class="app-shell hidden">
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand"><span class="brand-mark">a</span><div><strong>alpina</strong><small>GESTIÓN DE COMPRAS</small></div></div>
+
+      <div class="session-card" id="sessionCard"></div>
+
+      <nav class="main-nav" id="sidebarNav"></nav>
+
+      <div class="sidebar-bottom">
+        <button class="help-card" data-action="help"><span class="help-symbol" id="helpIcon"></span><div><strong>¿Necesitas ayuda?</strong><small>Guía rápida de tu perfil</small></div></button>
+        <div class="profile-mini">
+          <span class="avatar" id="sideAvatar"></span>
+          <span class="profile-text"><strong id="sideName"></strong><small id="roleLabel"></small></span>
+          <button class="logout-btn" data-action="logout" title="Cerrar sesión" aria-label="Cerrar sesión" id="logoutBtn"></button>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Abrir menú"></button>
+        <div class="breadcrumb">Alpina Compras <span>/</span> <strong id="breadcrumbPage">Resumen</strong></div>
+        <div class="top-actions">
+          <span class="top-date" id="todayLabel"></span>
+          <div class="menu-wrap">
+            <button class="icon-button" data-action="toggle-notif" id="notifBtn" title="Notificaciones" aria-label="Notificaciones"></button>
+            <div class="dropdown" id="notifMenu"></div>
+          </div>
+          <div class="menu-wrap">
+            <button class="user-chip" data-action="toggle-user" id="userChip" aria-label="Menú de usuario"></button>
+            <div class="dropdown dropdown-user" id="userMenu"></div>
+          </div>
+        </div>
+      </header>
+      <div class="content" id="pageContent"></div>
+      <footer class="app-footer"><span>ALPINA COMPRAS · SIGOC</span><span>Prototipo académico de experiencia de usuario · Datos de ejemplo</span></footer>
+    </main>
+  </div>
+
+  <div id="toast" class="toast" role="status"></div>
+  <div id="modalRoot"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
